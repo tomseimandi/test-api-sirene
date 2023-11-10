@@ -4,7 +4,7 @@ library(httr)
 
 # Function to query the API
 query_api <- function(username, password, text_feature, type_liasse=NULL, nature=NULL, surface=NULL, event=NULL, nb_echos_max=5, prob_min=0.01) {
-  base_url <- "https://codification-ape.lab.sspcloud.fr/predict"
+  base_url <- "https://codification-ape-test.lab.sspcloud.fr/predict"
   
   # Construct the parameters for the API request
   params <- list(
@@ -42,8 +42,8 @@ query_api <- function(username, password, text_feature, type_liasse=NULL, nature
 }
 
 # Set the authentication credentials and query parameters
-username <- "username"
-password <- "password"
+username <- "<YOUR_USERNAME>"
+password <- "<YOUR_PASSWORD>"
 text_feature <- "LOUEUR MEUBLE NON PROFESSIONNEL EN RESIDENCE DE SERVICES (CODE APE 6820A Location de logements)"
 type_liasse <- "I"
 nature <- NULL
@@ -63,7 +63,7 @@ result
 
 # Function to query the API in batch mode
 query_batch_api <- function(username, password, data, nb_echos_max=5, prob_min=0.01) {
-  base_url <- "https://codification-ape.lab.sspcloud.fr/predict-batch"
+  base_url <- "https://codification-ape-test.lab.sspcloud.fr/predict-batch"
   
   # Construct the parameters for the API request
   params <- list(
@@ -95,15 +95,14 @@ query_batch_api <- function(username, password, data, nb_echos_max=5, prob_min=0
   }
 }
 
-# Set the authentication credentials
-username <- "username"
-password <- "password"
+username <- "<YOUR_USERNAME>"
+password <- "<YOUR_PASSWORD>"
 
 # Create vectors for the data columns
 libs <- c("LOUEUR MEUBLE NON PROFESSIONNEL EN RESIDENCE DE SERVICES (CODE APE 6820A Location de logements)", "CONSULTANT EN INNOVATION", "INTERMEDIAIRE DE COMMERCE MISE EN RELATION")
 types <- c("I", "X", "Y")
-natures <- c(NA, NA, 10)
-surfaces <- c(NA, NA, 2)
+natures <- c("NA", "NA", "NA")
+surfaces <- c("NA", "NA", "NA")
 events <- c("01P", "01P", "01P")
 
 # Create the dataframe
